@@ -87,6 +87,56 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
+const newBody = document.querySelector("body");
+
+const createArticle = function (article) {
+
+
+const articleDIV = document.createElement('div');
+const articleH2 = document.createElement('h2');
+articleH2.textContent = article.title;
+const articleP = document.createElement('p');
+articleP.textContent = article.date;
+const firstP = document.createElement('p');
+articleP.textContent = article.firstParagraph;
+const secondP = document.createElement('p');
+const thirdP = document.createElement('p');
+const btn = document.createElement('span');
+
+btn.addEventListener('click', (event) => {
+  event.articleDIV.classList.toggle(".article-open");
+});
+
+
+articleDIV.classList.add('article');
+articleP.classList.add('date');
+btn.classList.add('expandButton');
+btn.textContent = "expand"
+
+articleDIV.appendChild(articleH2);
+articleDIV.appendChild(articleP);
+articleDIV.appendChild(firstP);
+articleDIV.appendChild(secondP);
+articleDIV.appendChild(thirdP);
+articleDIV.appendChild(btn);
+
+newBody.appendChild(articleDIV);
+
+return createArticle;
+}
+
+
+
+createArticle(data[0]);
+createArticle(data[1]);
+createArticle(data[2]);
+createArticle(data[3]);
+
+
+
+
+
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
