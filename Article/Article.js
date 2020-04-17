@@ -103,9 +103,6 @@ const secondP = document.createElement('p');
 const thirdP = document.createElement('p');
 const btn = document.createElement('span');
 
-btn.addEventListener('click', (event) => {
-  event.articleDIV.classList.toggle(".article-open");
-});
 
 
 articleDIV.classList.add('article');
@@ -122,19 +119,23 @@ articleDIV.appendChild(btn);
 
 newBody.appendChild(articleDIV);
 
-return createArticle;
+btn.addEventListener('click', () => {
+  articleDIV.classList.toggle('article-open')
+});
+
+return articleDIV;
 }
 
+// createArticle(data[0]);
+// createArticle(data[1]);
+// createArticle(data[2]);
+// createArticle(data[3]);
 
+const newArticle = document.querySelector('.articles');
 
-createArticle(data[0]);
-createArticle(data[1]);
-createArticle(data[2]);
-createArticle(data[3]);
-
-
-
-
+data.forEach(data => {
+  newArticle.appendChild(createArticle(data));
+});
 
 
 
